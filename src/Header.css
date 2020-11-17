@@ -9,4 +9,49 @@
   height: 54px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+}
+
+.header__icons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__icon {
+  margin-right: 1rem;
+  font-size: 20px;
+}
+
+.MuiSvgIcon-root {
+  font-size: 1.6rem !important;
+}
+
+.header__input {
+  display: flex;
+  align-items: center;
+}
+
+.header__input {
+  border: 1px solid #e2e0e0;
+  border-radius: 2px;
+  padding: 5px;
+}
+
+.header__input > input {
+  border: none;
+  font-size: 12px;
+}
+
+.header__input > input:focus {
+  outline: none;
+}
+
+.search__icon {
+  color: #bcb7b7;
+  font-size: 10px;
+}
+
+.header__input > .MuiSvgIcon-root {
+  font-size: 16px !important;
 }

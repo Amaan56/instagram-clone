@@ -7,7 +7,17 @@ import NavigationIcon from '@material-ui/icons/Navigation';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import Avatar from '@material-ui/core/Avatar';
 
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+  small: {
+    width: theme.spacing(3),
+    height: theme.spacing(3),
+  },
+}));
+
 function Header() {
+  const classes = useStyles();
   return (
     <div className="header">
       <div className="header__container">
@@ -16,16 +26,16 @@ function Header() {
           alt="Instagram Logo"
         />
         <div className="header__input">
-          <SearchIcon small fontSize="small" />
-          <input type="text" />
+          <SearchIcon className="search__icon" />
+          <input type="text" placeholder="Search" />
         </div>
         <div className="header__icons">
-          <HomeIcon />
-          <InboxIcon />
-          <NavigationIcon />
-          <FavoriteBorderIcon />
+          <HomeIcon className="header__icon" />
+          <InboxIcon className="header__icon" />
+          <NavigationIcon className="header__icon" />
+          <FavoriteBorderIcon className="header__icon" />
           <Avatar
-            fontSize="small"
+            className={classes.small}
             alt="Amaan Shaikh"
             src="https://instagram.fbom2-1.fna.fbcdn.net/v/t51.2885-19/s150x150/83639244_187705492295818_9221091469350141952_n.jpg?_nc_ht=instagram.fbom2-1.fna.fbcdn.net&_nc_ohc=ma5Yw1PI8_IAX-b1V4F&_nc_tp=25&oh=212594a42db841ea827f21820a06e443&oe=5FDBE121"
           />
