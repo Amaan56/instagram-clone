@@ -26,8 +26,11 @@ function Header() {
           alt="Instagram Logo"
         />
         <div className="header__input">
-          <SearchIcon className="search__icon" />
-          <input type="text" placeholder="Search" />
+          <div className="header_no_input">
+            <SearchIcon className="search__icon" />
+            <span className="search_text">Search</span>
+          </div>
+          {/* <input type="text" placeholder="Search" /> */}
         </div>
         <div className="header__icons">
           <HomeIcon className="header__icon" />

@@ -30,17 +30,17 @@
 .header__input {
   display: flex;
   align-items: center;
-}
-
-.header__input {
   border: 1px solid #e2e0e0;
   border-radius: 2px;
   padding: 5px;
+  width: 200px;
+  background-color: #fafafa;
+  justify-content: center;
 }
 
 .header__input > input {
   border: none;
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .header__input > input:focus {
@@ -49,9 +49,22 @@
 
 .search__icon {
   color: #bcb7b7;
-  font-size: 10px;
+  font-size: 9px;
+  margin-right: 1px;
 }
 
-.header__input > .MuiSvgIcon-root {
+.header_no_input > .MuiSvgIcon-root {
   font-size: 16px !important;
+  font-weight: 200 !important;
+}
+
+.search_text {
+  color: #bcb7b7;
+  font-size: 14px;
+}
+
+.header_no_input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
