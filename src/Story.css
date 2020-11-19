@@ -4,9 +4,10 @@
   border: 1px solid rgb(219 219 219);
   display: flex;
   align-items: center;
-  padding: 5px;
+  padding: 5px 0px;
   cursor: pointer;
   position: relative;
+  margin-bottom: 24px;
 }
 
 .story_container {
@@ -19,7 +20,6 @@
 .story__single {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
-  transition-duration: 0.5s ease-in-out;
 }
 
 .story__left {
