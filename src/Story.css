@@ -5,11 +5,49 @@
   display: flex;
   align-items: center;
   padding: 5px;
-  overflow-x: hidden;
-  overflow-y: hidden;
+  cursor: pointer;
+  position: relative;
 }
 
+.story_container {
+  display: flex;
+  align-items: center;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  position: relative;
+}
 .story__single {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
+  transition-duration: 0.5s ease-in-out;
+}
+
+.story__left {
+  /* position: absolute; */
+  cursor: pointer;
+  left: 0;
+  z-index: 100;
+  background: white;
+  border-radius: 50%;
+  margin-left: 8px !important;
+}
+
+.story__right {
+  position: absolute;
+  cursor: pointer;
+  right: 0;
+  z-index: 100;
+  background: white;
+  border-radius: 50%;
+  margin-right: 8px !important;
+}
+
+.story__left > .MuiSvgIcon-root {
+  font-size: 1rem !important;
+  padding: 2px;
+}
+
+.story__right > .MuiSvgIcon-root {
+  font-size: 1rem !important;
+  padding: 2px;
 }

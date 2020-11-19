@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import './Story.css';
 import { makeStyles } from '@material-ui/core/styles';
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
 const useStyles = makeStyles((theme) => ({
   large: {
@@ -11,6 +13,16 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Story() {
+  const [counter, setCounter] = useState(0);
+  const [leftNavigationShow, setLeftNavigationShow] = useState(false);
+  const [rightNavigationShow, setRightNavigationShow] = useState(true);
+
+  const [firstElementStartLeft, setfirstElementStartLeft] = useState(0);
+
+  const storyContainer = React.createRef();
+
+  let scrollElements = [];
+
   const classes = useStyles();
   const stories = [
     'https://instagram.fbom2-1.fna.fbcdn.net/v/t51.2885-19/s150x150/83639244_187705492295818_9221091469350141952_n.jpg?_nc_ht=instagram.fbom2-1.fna.fbcdn.net&_nc_ohc=ma5Yw1PI8_IAX-b1V4F&_nc_tp=25&oh=212594a42db841ea827f21820a06e443&oe=5FDBE121',
@@ -25,15 +37,99 @@ function Story() {
     'https://instagram.fbom2-1.fna.fbcdn.net/v/t51.2885-19/s150x150/72404257_779650272492838_7586421710992179200_n.jpg?_nc_ht=instagram.fbom2-1.fna.fbcdn.net&_nc_ohc=GNsVcHfLaKYAX9DY0dw&tp=1&oh=97020ca2a0e9542d2c1260555a98e361&oe=5FDF6B07',
     'https://instagram.fbom2-1.fna.fbcdn.net/v/t51.2885-19/s150x150/98175057_304325590570794_5974626050804547584_n.jpg?_nc_ht=instagram.fbom2-1.fna.fbcdn.net&_nc_ohc=S85XavI_O1oAX88TsSO&tp=25&oh=bd7de8daf0735793582a8793ed958552&oe=5FE0021C',
   ];
+
+  useEffect(() => {
+    setfirstElementStartLeft(scrollElements[0].getBoundingClientRect().left);
+  }, []);
+
+  useEffect(() => {
+    const storyContainerLeft = storyContainer.current.getBoundingClientRect()
+      .left;
+    const storyContainerRight = storyContainer.current.getBoundingClientRect()
+      .right;
+    const scrollFirstElementLeft = scrollElements[0].getBoundingClientRect()
+      .left;
+    const scrollLastElementRight = scrollElements[
+      scrollElements.length - 1
+    ].getBoundingClientRect().right;
+
+    if (scrollLastElementRight < storyContainerRight) {
+      setRightNavigationShow(false);
+    }
+
+    if (scrollFirstElementLeft > firstElementStartLeft) {
+      setLeftNavigationShow(false);
+    }
+  }, [counter]);
+
+  const scrollLeft = () => {
+    const storyContainerLeft = storyContainer.current.getBoundingClientRect()
+      .left;
+    const storyContainerRight = storyContainer.current.getBoundingClientRect()
+      .right;
+    const scrollFirstElementLeft = scrollElements[0].getBoundingClientRect()
+      .left;
+    const scrollLastElementRight = scrollElements[
+      scrollElements.length - 1
+    ].getBoundingClientRect().right;
+
+    if (scrollFirstElementLeft > firstElementStartLeft) {
+      setLeftNavigationShow(false);
+    } else {
+      setCounter((prevState, props) => prevState + 80);
+      setRightNavigationShow(true);
+    }
+    console.log('Left');
+  };
+
+  const scrollRight = () => {
+    const storyContainerLeft = storyContainer.current.getBoundingClientRect()
+      .left;
+    const storyContainerRight = storyContainer.current.getBoundingClientRect()
+      .right;
+    const scrollFirstElementLeft = scrollElements[0].getBoundingClientRect()
+      .left;
+    const scrollLastElementRight = scrollElements[
+      scrollElements.length - 1
+    ].getBoundingClientRect().right;
+
+    setLeftNavigationShow(true);
+
+    if (scrollLastElementRight > storyContainerRight) {
+      setCounter((prevState, props) => prevState - 80);
+    } else {
+      setRightNavigationShow(false);
+    }
+
+    console.log('Right');
+  };
+
   return (
     <div className="story">
-      {stories.map((story, i) => (
-        <Avatar
-          className={`${classes.large} story__single`}
-          key={i}
-          src={story}
-        />
-      ))}
+      <div ref={storyContainer} className="story_container">
+        {leftNavigationShow && (
+          <div className="story__left" onClick={scrollLeft}>
+            <ChevronLeftIcon />
+          </div>
+        )}
+        {stories.map((story, i) => (
+          <Avatar
+            ref={(ref) => {
+              scrollElements[i] = ref;
+            }}
+            className={`${classes.large} story__single`}
+            key={i}
+            style={{ transform: `translate(${counter}px)` }}
+            src={story}
+          />
+        ))}
+      </div>
+
+      {rightNavigationShow && (
+        <div className="story__right" onClick={scrollRight}>
+          <ChevronRightIcon />
+        </div>
+      )}
     </div>
   );
 }
