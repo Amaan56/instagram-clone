@@ -1,5 +1,7 @@
 .header {
   border-bottom: 1px solid rgb(219 219 219);
+  display: flex;
+  align-items: center;
 }
 
 .header__container {
@@ -38,15 +40,6 @@
   justify-content: center;
 }
 
-.header__input > input {
-  border: none;
-  font-size: 11px;
-}
-
-.header__input > input:focus {
-  outline: none;
-}
-
 .search__icon {
   color: #bcb7b7;
   font-size: 9px;
@@ -67,4 +60,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.header_yes_input {
+  display: flex;
+  align-items: center;
+}
+
+.header_yes_input > input {
+  border: none;
+  font-size: 13px;
+  background-color: #fafafa;
+}
+
+.header_yes_input > input:focus {
+  outline: none;
+  background-color: #fafafa;
+}
+
+.header_yes_input > .MuiSvgIcon-root {
+  color: #b2adad;
+  font-size: 15px !important;
 }

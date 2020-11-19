@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Header.css';
 import SearchIcon from '@material-ui/icons/Search';
 import HomeIcon from '@material-ui/icons/Home';
@@ -6,7 +6,7 @@ import InboxIcon from '@material-ui/icons/Inbox';
 import NavigationIcon from '@material-ui/icons/Navigation';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import Avatar from '@material-ui/core/Avatar';
-
+import CancelIcon from '@material-ui/icons/Cancel';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -17,7 +17,15 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Header() {
+  const [showInput, setShowInput] = useState(false);
   const classes = useStyles();
+
+  const changeShowInput = () => {
+    setShowInput((prevState) => {
+      return !prevState;
+    });
+  };
+
   return (
     <div className="header">
       <div className="header__container">
@@ -26,11 +34,21 @@ function Header() {
           alt="Instagram Logo"
         />
         <div className="header__input">
-          <div className="header_no_input">
-            <SearchIcon className="search__icon" />
-            <span className="search_text">Search</span>
-          </div>
-          {/* <input type="text" placeholder="Search" /> */}
+          {!showInput ? (
+            <div className="header_no_input" onClick={changeShowInput}>
+              <SearchIcon className="search__icon" />
+              <span className="search_text">Search</span>
+            </div>
+          ) : (
+            <div className="header_yes_input">
+              <SearchIcon className="search__icon" />
+              <input type="text" placeholder="Search" />
+              <CancelIcon
+                className="search__cancel"
+                onClick={changeShowInput}
+              />
+            </div>
+          )}
         </div>
         <div className="header__icons">
           <HomeIcon className="header__icon" />
