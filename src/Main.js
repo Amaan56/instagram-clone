@@ -1,5 +1,6 @@
 import React from 'react';
 import Sidebar from './Sidebar';
+import Story from './Story';
 import PostSection from './PostSection';
 import './Main.css';
 

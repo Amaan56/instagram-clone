@@ -1,0 +1,7 @@
+.main {
+  width: 935px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  padding-top: 30px;
+}
