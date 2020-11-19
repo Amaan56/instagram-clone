@@ -4,3 +4,26 @@
   border: 1px solid rgb(219 219 219);
   margin-bottom: 60px;
 }
+
+.post__header {
+  height: 60px;
+  border-bottom: 1px solid rgb(219 219 219);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.post__header__start {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.post__header__start > p {
+  margin-left: 20px;
+}
+
+.post__header__end {
+  padding: 10px;
+  margin-right: 5px;
+}
