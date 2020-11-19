@@ -17,6 +17,10 @@ function Post() {
           <MoreHorizIcon />
         </div>
       </div>
+      <img
+        src="https://instagram.fbom2-1.fna.fbcdn.net/v/t51.2885-15/e35/p1080x1080/125885810_291810525441646_6257595315602442671_n.jpg?_nc_ht=instagram.fbom2-1.fna.fbcdn.net&_nc_cat=1&_nc_ohc=dToekk0ZdFwAX8y9_HW&tp=19&oh=306589a142bcbe47dd8335201e6a60ab&oe=5FE05D0C"
+        alt="Instagram Image"
+      />
     </div>
   );
 }
