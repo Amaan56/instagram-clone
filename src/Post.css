@@ -57,3 +57,8 @@
 .post__footer__icons__right .MuiSvgIcon-root {
   font-size: 28px !important;
 }
+
+.post__footer_likeSection {
+  display: flex;
+  align-items: center;
+}
