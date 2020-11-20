@@ -2,6 +2,10 @@ import React from 'react';
 import './Post.css';
 import Avatar from '@material-ui/core/Avatar';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
+import ShareIcon from '@material-ui/icons/Share';
+import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 function Post() {
   return (
     <div className="post">
@@ -21,7 +25,18 @@ function Post() {
         src="https://instagram.fbom2-1.fna.fbcdn.net/v/t51.2885-15/e35/p1080x1080/125885810_291810525441646_6257595315602442671_n.jpg?_nc_ht=instagram.fbom2-1.fna.fbcdn.net&_nc_cat=1&_nc_ohc=dToekk0ZdFwAX8y9_HW&tp=19&oh=306589a142bcbe47dd8335201e6a60ab&oe=5FE05D0C"
         alt="Instagram Image"
       />
-      <div className="post__footer"></div>
+      <div className="post__footer">
+        <div className="post__footer__icons">
+          <div className="post__footer__icons__left">
+            <FavoriteBorderIcon />
+            <ChatBubbleOutlineIcon />
+            <ShareIcon />
+          </div>
+          <div className="post__footer__icons__right">
+            <BookmarkBorderIcon />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

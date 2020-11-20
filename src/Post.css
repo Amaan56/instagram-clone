@@ -31,3 +31,29 @@
   width: 614px;
   object-fit: contain;
 }
+
+.post__footer {
+  padding: 10px;
+}
+
+.post__footer__icons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.post__footer__icons__left {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.post__footer__icons__left .MuiSvgIcon-root {
+  margin-right: 10px;
+  font-size: 28px !important;
+}
+
+.post__footer__icons__right .MuiSvgIcon-root {
+  font-size: 28px !important;
+}
