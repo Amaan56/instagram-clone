@@ -58,7 +58,31 @@
   font-size: 28px !important;
 }
 
-.post__footer_likeSection {
+.post__footer__likeSection {
   display: flex;
   align-items: center;
+}
+.post__footer__caption {
+  display: flex;
+  align-items: flex-end;
+  overflow-wrap: break-word;
+}
+
+.post__footer__captionText {
+  font-size: 14px;
+  overflow: hidden;
+  line-height: 22px;
+  text-align: justify;
+  word-break: keep-all;
+}
+
+.moreBtn {
+  background: 0 0;
+  border: 0;
+  color: #8e8e8e;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  line-height: 19.5px;
+  outline: 0;
 }

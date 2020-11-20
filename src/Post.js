@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import './Post.css';
 import Avatar from '@material-ui/core/Avatar';
@@ -17,6 +17,20 @@ const useStyles = makeStyles((theme) => ({
 
 function Post() {
   const classes = useStyles();
+  const captionContainer = React.createRef();
+  const [captionHeight, setCaptionHeight] = useState(0);
+  const [maxHeight, setMaxHeight] = useState(0);
+  const lineHeight = 22;
+  useEffect(() => {
+    setCaptionHeight(captionContainer.current.getBoundingClientRect().height);
+  }, []);
+
+  useEffect(() => {
+    if (captionHeight > lineHeight * 2) {
+      setMaxHeight(lineHeight * 2);
+    }
+  }, [captionHeight]);
+
   return (
     <div className="post">
       <div className="post__header">
@@ -46,7 +60,7 @@ function Post() {
             <BookmarkBorderIcon />
           </div>
         </div>
-        <div className="post__footer_likeSection">
+        <div className="post__footer__likeSection">
           <Avatar
             className={classes.small}
             alt="Amaan Shaikh"
@@ -56,6 +70,43 @@ function Post() {
             Liked By <span style={{ fontWeight: 500 }}>akshata_pathare </span>
             and <span style={{ fontWeight: 500 }}>441 others</span>
           </div>
+        </div>
+        <div className="post__footer__caption">
+          <span
+            ref={captionContainer}
+            className="post__footer__captionText"
+            style={{ maxHeight: maxHeight > 0 ? `${maxHeight}px` : null }}
+          >
+            <span
+              style={{
+                fontWeight: 600,
+                fontSize: '14px',
+                display: 'inline',
+                marginRight: '5px',
+              }}
+            >
+              pratikgandhiofficial
+            </span>
+            At least 37 transgender and gender-nonconforming people have been
+            killed this year, most of them Black and Brown transgender women.
+            It’s intolerable. This Son Day of Remembrance, we honor their
+            lives—and recommit to the work that remains to end this epidemic of
+            violence. To transgender and gender-nonconforming people across
+            America and around the world: from the moment I am sworn in as
+            president, know that my administration will see you, listen to you,
+            and fight for not only your safety but also the dignity and justice
+            you have been denied.
+          </span>
+          {maxHeight === captionHeight ? null : (
+            <button
+              className="moreBtn"
+              onClick={() => {
+                setMaxHeight(captionHeight);
+              }}
+            >
+              ...more
+            </button>
+          )}
         </div>
       </div>
     </div>
