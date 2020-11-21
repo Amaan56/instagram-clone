@@ -127,6 +127,7 @@
   resize: none;
   outline: none;
   font-size: 15px;
+  color: #8e8e8e;
 }
 
 .post_footer_addCommentForm > button {
@@ -135,4 +136,8 @@
   background-color: white;
   color: #0095f6;
   cursor: pointer;
+}
+
+.post_footer_addCommentForm > button[disabled] {
+  opacity: 0.3;
 }

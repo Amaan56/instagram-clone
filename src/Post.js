@@ -29,6 +29,9 @@ function Post() {
   ]);
 
   const [newCommentInput, setnewCommentInput] = useState('');
+  const [postButtonDisabled, setpostButtonDisabled] = useState(true);
+
+  const formElement = React.createRef();
 
   useEffect(() => {
     setCaptionHeight(captionContainer.current.getBoundingClientRect().height);
@@ -40,6 +43,9 @@ function Post() {
     }
   }, [captionHeight]);
 
+  useEffect(() => {
+    if (newCommentInput === '') setpostButtonDisabled(true);
+  }, [newCommentInput]);
   const changeLikeStatus = (i) => {
     let newArray = [...comments];
 
@@ -52,6 +58,7 @@ function Post() {
   };
 
   const addComments = (e) => {
+    console.log('test');
     e.preventDefault();
     let newArray = [...comments];
     newArray.push({
@@ -145,14 +152,32 @@ function Post() {
         <Comments comments={comments} changeLikeStatus={changeLikeStatus} />
         <div className="post__footer__timestamp">14 HOURS AGO</div>
         <div className="post_footer_addComment">
-          <form className="post_footer_addCommentForm" onSubmit={addComments}>
+          <form
+            ref={formElement}
+            className="post_footer_addCommentForm"
+            onSubmit={(e) => {
+              addComments(e);
+            }}
+            action=""
+          >
             <textarea
               placeholder="Add a comment..."
               value={newCommentInput}
-              type="submit"
-              onChange={(e) => setnewCommentInput(e.target.value)}
+              onChange={(e) => {
+                setnewCommentInput(e.target.value);
+              }}
+              onKeyPress={(e) => {
+                setpostButtonDisabled(false);
+              }}
+              onKeyDown={(e) => {
+                if (e.keyCode == 13 && e.shiftKey == false) {
+                  addComments(e);
+                }
+              }}
             ></textarea>
-            <button type="submit">Post</button>
+            <button type="submit" disabled={postButtonDisabled}>
+              Post
+            </button>
           </form>
         </div>
       </div>
