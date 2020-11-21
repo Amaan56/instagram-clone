@@ -7,6 +7,7 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
 import ShareIcon from '@material-ui/icons/Share';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
+import Comments from './Comments';
 
 const useStyles = makeStyles((theme) => ({
   small: {
@@ -107,6 +108,12 @@ function Post() {
               ...more
             </button>
           )}
+        </div>
+        <div className="post__footer__numberOfComments">
+          View all 13 comments
+        </div>
+        <div className="post__footer__comment">
+          <Comments />
         </div>
       </div>
     </div>
