@@ -22,6 +22,12 @@ function Post() {
   const [captionHeight, setCaptionHeight] = useState(0);
   const [maxHeight, setMaxHeight] = useState(0);
   const lineHeight = 22;
+
+  const [comments, setComments] = useState([
+    { username: 'johncena', comment: "You can't see me", liked: false },
+    { username: 'romanreigns', comment: 'This is my yard ', liked: true },
+  ]);
+
   useEffect(() => {
     setCaptionHeight(captionContainer.current.getBoundingClientRect().height);
   }, []);
@@ -31,6 +37,17 @@ function Post() {
       setMaxHeight(lineHeight * 2);
     }
   }, [captionHeight]);
+
+  const changeLikeStatus = (i) => {
+    let newArray = [...comments];
+
+    newArray[i] = {
+      ...newArray[i],
+      liked: !newArray[i].liked,
+    };
+
+    setComments(newArray);
+  };
 
   return (
     <div className="post">
@@ -112,9 +129,7 @@ function Post() {
         <div className="post__footer__numberOfComments">
           View all 13 comments
         </div>
-        <div className="post__footer__comment">
-          <Comments />
-        </div>
+        <Comments comments={comments} changeLikeStatus={changeLikeStatus} />
       </div>
     </div>
   );

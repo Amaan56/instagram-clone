@@ -1,0 +1,10 @@
+.comments_single {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.comments_single > p {
+  font-size: 14px;
+  margin-bottom: 2px;
+}
