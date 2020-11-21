@@ -33,7 +33,6 @@
 }
 
 .post__footer {
-  padding: 10px;
 }
 
 .post__footer__icons {
@@ -41,6 +40,7 @@
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
+  padding: 0 10px;
 }
 
 .post__footer__icons__left {
@@ -61,11 +61,13 @@
 .post__footer__likeSection {
   display: flex;
   align-items: center;
+  padding: 0 10px;
 }
 .post__footer__caption {
   display: flex;
   align-items: flex-end;
   overflow-wrap: break-word;
+  padding: 0 10px;
 }
 
 .post__footer__captionText {
@@ -92,4 +94,45 @@
   font-size: 14px;
   margin-top: 5px;
   margin-bottom: 5px;
+  padding: 0 10px;
+}
+
+.post__footer__timestamp {
+  color: #8e8e8e;
+  font-size: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 0 10px;
+}
+
+.post_footer_addComment {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid rgb(219 219 219);
+}
+
+.post_footer_addCommentForm {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  padding: 0 10px;
+}
+
+.post_footer_addCommentForm > textarea {
+  border: none;
+  height: 18px;
+  width: 100%;
+  resize: none;
+  outline: none;
+  font-size: 15px;
+}
+
+.post_footer_addCommentForm > button {
+  border: none;
+  outline: none;
+  background-color: white;
+  color: #0095f6;
+  cursor: pointer;
 }

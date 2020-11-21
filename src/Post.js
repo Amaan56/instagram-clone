@@ -28,6 +28,8 @@ function Post() {
     { username: 'romanreigns', comment: 'This is my yard ', liked: true },
   ]);
 
+  const [newCommentInput, setnewCommentInput] = useState('');
+
   useEffect(() => {
     setCaptionHeight(captionContainer.current.getBoundingClientRect().height);
   }, []);
@@ -49,6 +51,17 @@ function Post() {
     setComments(newArray);
   };
 
+  const addComments = (e) => {
+    e.preventDefault();
+    let newArray = [...comments];
+    newArray.push({
+      username: 'amaan__56',
+      comment: newCommentInput,
+      liked: false,
+    });
+    setnewCommentInput('');
+    setComments(newArray);
+  };
   return (
     <div className="post">
       <div className="post__header">
@@ -130,6 +143,18 @@ function Post() {
           View all 13 comments
         </div>
         <Comments comments={comments} changeLikeStatus={changeLikeStatus} />
+        <div className="post__footer__timestamp">14 HOURS AGO</div>
+        <div className="post_footer_addComment">
+          <form className="post_footer_addCommentForm" onSubmit={addComments}>
+            <textarea
+              placeholder="Add a comment..."
+              value={newCommentInput}
+              type="submit"
+              onChange={(e) => setnewCommentInput(e.target.value)}
+            ></textarea>
+            <button type="submit">Post</button>
+          </form>
+        </div>
       </div>
     </div>
   );
