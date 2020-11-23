@@ -80,7 +80,7 @@ function Post() {
           <p>amaaan_56</p>
         </div>
         <div className="post__header__end">
-          <MoreHorizIcon />
+          <MoreHorizIcon onClick={() => console.log('test')} />
         </div>
       </div>
       <img
