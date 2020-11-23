@@ -1,7 +1,9 @@
 import React from 'react';
 import './Backdrop.css';
+import { useDataLayerValue } from './DataLayer';
 
 function Backdrop() {
+  const [{ backdrop }, dispatch] = useDataLayerValue();
   const options = [
     'Report',
     'Unfollow',
@@ -12,10 +14,27 @@ function Backdrop() {
     'Cancel',
   ];
   return (
-    <div className="backdrop">
+    <div
+      className="backdrop"
+      onClick={() => {
+        dispatch({
+          type: 'UNSET_BACKDROP',
+          backdrop: false,
+        });
+      }}
+    >
       <div className="backdrop__modal">
         {options.map((option, i) => {
-          return <button key={i}>{option}</button>;
+          return (
+            <button
+              key={i}
+              onClick={(e) => {
+                if (option !== 'Cancel') e.stopPropagation();
+              }}
+            >
+              {option}
+            </button>
+          );
         })}
       </div>
     </div>

@@ -3,17 +3,17 @@ export const initialState = {
 };
 
 const reducer = (state, action) => {
+  console.log(action);
   switch (action.type) {
     case 'SET_BACKDROP':
       return {
         ...state,
-        backdrop: true,
+        backdrop: action.backdrop,
       };
-
     case 'UNSET_BACKDROP':
       return {
         ...state,
-        backdrop: false,
+        backdrop: action.backdrop,
       };
     default:
       return state;

@@ -8,6 +8,7 @@ import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
 import ShareIcon from '@material-ui/icons/Share';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 import Comments from './Comments';
+import { useDataLayerValue } from './DataLayer';
 
 const useStyles = makeStyles((theme) => ({
   small: {
@@ -17,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Post() {
+  const [{ backdrop }, dispatch] = useDataLayerValue();
   const classes = useStyles();
   const captionContainer = React.createRef();
   const [captionHeight, setCaptionHeight] = useState(0);
@@ -80,7 +82,14 @@ function Post() {
           <p>amaaan_56</p>
         </div>
         <div className="post__header__end">
-          <MoreHorizIcon onClick={() => console.log('test')} />
+          <MoreHorizIcon
+            onClick={() => {
+              dispatch({
+                type: 'SET_BACKDROP',
+                backdrop: true,
+              });
+            }}
+          />
         </div>
       </div>
       <img
