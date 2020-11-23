@@ -5,4 +5,18 @@
   height: 100vh;
   background-color: black;
   background-color: rgba(0, 0, 0, 0.75);
+  display: grid;
+  place-items: center;
+}
+
+.backdrop__modal {
+  width: 400px;
+  height: 322px;
+  background-color: white;
+  z-index: 999;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
 }
