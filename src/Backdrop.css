@@ -5,18 +5,58 @@
   height: 100vh;
   background-color: black;
   background-color: rgba(0, 0, 0, 0.75);
-  display: grid;
-  place-items: center;
+  /* display: grid;
+  place-items: center; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .backdrop__modal {
   width: 400px;
-  height: 322px;
+  height: 332px;
   background-color: white;
   z-index: 999;
-  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.backdrop__modal > button {
+  width: 400px;
+  height: 48px;
+  background-color: white;
+  outline: none;
+  border-right: 0;
+  border-left: 0;
+  border-top: 0;
+  border-bottom: 1px solid #dbdbdb;
+  text-align: center;
+  padding: 4px 8px !important;
+  cursor: pointer;
+}
+
+.backdrop__modal :first-child {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  color: #ed4956;
+  font-weight: 700;
+}
+
+.backdrop__modal :nth-child(2) {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  color: #ed4956;
+  font-weight: 700;
+}
+
+.backdrop__modal :last-child {
+  border-bottom-left-radius: 12px !important;
+  border-bottom-right-radius: 12px !important;
+  border-bottom: 0;
 }
