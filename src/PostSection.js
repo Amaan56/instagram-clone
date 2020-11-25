@@ -6,6 +6,7 @@ function PostSection() {
   return (
     <div className="postsection">
       <Post />
+      <Post />
     </div>
   );
 }
