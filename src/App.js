@@ -6,7 +6,7 @@ import { useDataLayerValue } from './DataLayer';
 
 function App() {
   const [{ backdrop }, dispatch] = useDataLayerValue();
-  console.log(backdrop);
+  console.log('Test');
   return (
     <div className="app">
       {backdrop && <Backdrop />}
